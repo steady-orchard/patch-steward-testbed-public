@@ -22,7 +22,7 @@ on:
 permissions: {}
 
 env:
-  PROBE_DEFINITION: default-branch
+  PROBE_DEFINITION: probe-pa03-base
 
 jobs:
   record:
