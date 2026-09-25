@@ -4,6 +4,10 @@
 # Issue writes go to a new issue "[probe PA07] writes <token> <nonce>"; PR writes go to the open probe PR <pr>.
 # Each write is logged "PROBE-PA07 token=<t> write=<kind> target=<n> utc=<time>" and followed by an 8 s pause so the
 # listener's runs can be matched to writes. Dispatch-only: it never reacts to an event.
+# Both tokens get contents: write besides issues and pull-requests: the GraphQL draft mutations
+# (convertPullRequestToDraft, markPullRequestReadyForReview) answer "Resource not accessible by integration" without it
+# (step 2.7). A draft mutation the platform still refuses is logged "PROBE-PA07 token=<t> write-refused=<kind> ...
+# response=<verbatim>" and the sequence continues.
 # Canonical source: probes/pa07-app-token-writes/workflows/probe-pa07-write.yml
 # Deployed copy:    .github/workflows/probe-pa07-write.yml on master (byte-identical).
 name: probe-pa07-write
@@ -34,6 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
+      contents: write
       issues: write
       pull-requests: write
     steps:
@@ -44,6 +49,7 @@ jobs:
         with:
           app-id: ${{ secrets.STEWARD_APP_ID }}
           private-key: ${{ secrets.STEWARD_APP_PRIVATE_KEY }}
+          permission-contents: write
           permission-issues: write
           permission-pull-requests: write
 
@@ -58,11 +64,12 @@ jobs:
           R="$GITHUB_REPOSITORY"
           case "$PR" in '' | *[!0-9]*) echo "PROBE-PA07 error=pr-not-a-number"; exit 1 ;; esac
           case "$NONCE" in *[!A-Za-z0-9._-]*) echo "PROBE-PA07 error=bad-nonce"; exit 1 ;; esac
+          utc() { date -u +%Y-%m-%dT%H:%M:%SZ; }
           w() {
-            echo "PROBE-PA07 token=$TOKEN_KIND write=$1 target=$2 utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "PROBE-PA07 token=$TOKEN_KIND write=$1 target=$2 utc=$(utc)"
             sleep 8
           }
-          echo "PROBE-PA07 token=$TOKEN_KIND start run_id=$GITHUB_RUN_ID pr=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "PROBE-PA07 token=$TOKEN_KIND start run_id=$GITHUB_RUN_ID pr=$PR utc=$(utc)"
           if ! gh api "repos/$R/labels/probe-pa07:x" --jq .name > /dev/null 2>&1; then
             gh api -X POST "repos/$R/labels" -f name='probe-pa07:x' -f color=cccccc --jq .name > /dev/null
           fi
@@ -88,18 +95,19 @@ jobs:
           w issue-reopen "$I"
           node="$(gh api "repos/$R/pulls/$PR" --jq .node_id)"
           draft="$(gh api "repos/$R/pulls/$PR" --jq .draft)"
-          if [ "$draft" != true ]; then
-            if gh api graphql -f query='mutation($id: ID!) { convertPullRequestToDraft(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null 2>/tmp/pa07-err; then
-              w pr-convert-to-draft "$PR"
+          gql() {
+            # $1 = write kind, $2 = mutation text; a refusal is logged verbatim and the sequence continues
+            local out
+            if out="$(gh api graphql -f query="$2" -f id="$node" 2>&1)"; then
+              w "$1" "$PR"
             else
-              echo "PROBE-PA07 token=$TOKEN_KIND write-blocked=pr-convert-to-draft target=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ) reason=$(tr -d '\n' < /tmp/pa07-err)"
+              echo "PROBE-PA07 token=$TOKEN_KIND write-refused=$1 target=$PR utc=$(utc) response=$(printf '%s' "$out" | tr '\n' ' ' | cut -c1-600)"
             fi
+          }
+          if [ "$draft" != true ]; then
+            gql pr-convert-to-draft 'mutation($id: ID!) { convertPullRequestToDraft(input: {pullRequestId: $id}) { pullRequest { isDraft } } }'
           fi
-          if gh api graphql -f query='mutation($id: ID!) { markPullRequestReadyForReview(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null 2>/tmp/pa07-err; then
-            w pr-ready-for-review "$PR"
-          else
-            echo "PROBE-PA07 token=$TOKEN_KIND write-blocked=pr-ready-for-review target=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ) reason=$(tr -d '\n' < /tmp/pa07-err)"
-          fi
+          gql pr-ready-for-review 'mutation($id: ID!) { markPullRequestReadyForReview(input: {pullRequestId: $id}) { pullRequest { isDraft } } }'
           gh api -X PATCH "repos/$R/pulls/$PR" -f body="probe PA07 PR body edited by $TOKEN_KIND $NONCE" --jq .number > /dev/null
           w pr-body-edit "$PR"
           gh api -X POST "repos/$R/issues/$PR/labels" -f 'labels[]=probe-pa07:x' --jq length > /dev/null
@@ -108,4 +116,4 @@ jobs:
           w pr-reaction-add "$PR"
           gh api -X PATCH "repos/$R/issues/$I" -f state=closed --jq .state > /dev/null
           w issue-close-final "$I"
-          echo "PROBE-PA07 token=$TOKEN_KIND done issue=$I pr=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "PROBE-PA07 token=$TOKEN_KIND done issue=$I pr=$PR utc=$(utc)"
