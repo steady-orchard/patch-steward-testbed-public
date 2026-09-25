@@ -55,6 +55,7 @@ jobs:
           PR: ${{ inputs.pr }}
         run: |
           set -euo pipefail
+          set -x
           R="$GITHUB_REPOSITORY"
           case "$PR" in '' | *[!0-9]*) echo "PROBE-PA07 error=pr-not-a-number"; exit 1 ;; esac
           case "$NONCE" in *[!A-Za-z0-9._-]*) echo "PROBE-PA07 error=bad-nonce"; exit 1 ;; esac
