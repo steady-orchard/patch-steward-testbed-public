@@ -1,0 +1,78 @@
+# PA06 probe (merge-queue relay), PA06.2 and PA06.3: the default-branch workflow_run that follows each relay run.
+# It resolves the group commit and the member PR, then completes the App check "probe-pa06/gate" on the group commit
+# as the PR title asks: "mode=success" -> success, "mode=failure" -> failure, anything else -> no check (the queue's
+# check-response timeout decides). The PR title is read through the API as data, never interpolated into a script.
+# Safety: it never reacts to events sent by the test App's bot.
+# Canonical source: probes/pa06-merge-queue-relay/workflows/probe-pa06-steward.yml
+# Deployed copy:    .github/workflows/probe-pa06-steward.yml on master (byte-identical).
+name: probe-pa06-steward
+run-name: probe-pa06-steward ${{ github.event.workflow_run.head_sha }}
+
+on:
+  workflow_run:
+    workflows: [probe-pa06-relay]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  steward:
+    name: steward
+    if: >-
+      ${{ github.event.workflow_run.event == 'merge_group' &&
+      startsWith(github.event.workflow_run.head_branch, 'gh-readonly-queue/probe-pa06-') &&
+      github.event.sender.login != 'patch-steward-testbed[bot]' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Mint an App installation token
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.STEWARD_APP_ID }}
+          private-key: ${{ secrets.STEWARD_APP_PRIVATE_KEY }}
+          permission-checks: write
+
+      - name: Resolve the group and write the check the PR title asks for
+        env:
+          APP_TOKEN: ${{ steps.app.outputs.token }}
+          JOB_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          RELAY_RUN_ID: ${{ github.event.workflow_run.id }}
+          RELAY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RELAY_EVENT: ${{ github.event.workflow_run.event }}
+          RELAY_CREATED: ${{ github.event.workflow_run.created_at }}
+          RELAY_UPDATED: ${{ github.event.workflow_run.updated_at }}
+          PRS: ${{ toJSON(github.event.workflow_run.pull_requests) }}
+          SENDER: ${{ github.event.sender.login }}
+        run: |
+          set -euo pipefail
+          R="$GITHUB_REPOSITORY"
+          utc() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+          echo "PROBE-PA06 job=steward ref=$GITHUB_REF workflow_ref=$GITHUB_WORKFLOW_REF sender=$SENDER start_utc=$(utc)"
+          echo "PROBE-PA06 job=steward workflow_run id=$RELAY_RUN_ID event=$RELAY_EVENT conclusion=$RELAY_CONCLUSION head_sha=$HEAD_SHA head_branch=$HEAD_BRANCH created_at=$RELAY_CREATED updated_at=$RELAY_UPDATED"
+          echo "PROBE-PA06 job=steward workflow_run.pull_requests=$(printf '%s' "$PRS" | jq -c '[.[] | .number]')"
+          N="$(printf '%s' "$HEAD_BRANCH" | sed -nE 's#^gh-readonly-queue/[^ ]+/pr-([0-9]+)-[0-9a-f]{40}$#\1#p')"
+          if [ -z "$N" ]; then echo "PROBE-PA06 job=steward error=cannot-parse-pr-from-head-branch"; exit 1; fi
+          GH_TOKEN="$JOB_TOKEN" gh api "repos/$R/commits/$HEAD_SHA" \
+            --jq '"PROBE-PA06 job=steward group_commit sha=\(.sha) parents=\([.parents[].sha] | join(","))"'
+          title="$(GH_TOKEN="$JOB_TOKEN" gh api "repos/$R/pulls/$N" --jq .title)"
+          case "$title" in
+            *"mode=success"*) mode=success ;;
+            *"mode=failure"*) mode=failure ;;
+            *) mode=none ;;
+          esac
+          echo "PROBE-PA06 job=steward pr=$N mode=$mode"
+          if [ "$mode" = none ]; then
+            echo "PROBE-PA06 job=steward check=none (left to the check-response timeout) utc=$(utc)"
+            exit 0
+          fi
+          GH_TOKEN="$APP_TOKEN" gh api -X POST "repos/$R/check-runs" -f name=probe-pa06/gate -f head_sha="$HEAD_SHA" \
+            -f status=completed -f conclusion="$mode" -f 'output[title]=probe PA06' -f "output[summary]=mode $mode for PR $N" \
+            --jq '"PROBE-PA06 job=steward check id=\(.id) app=\(.app.slug) conclusion=\(.conclusion) head_sha=\(.head_sha) completed_at=\(.completed_at)"'
+          echo "PROBE-PA06 job=steward done_utc=$(utc)"
