@@ -34,7 +34,7 @@ on:
 permissions: {}
 
 env:
-  PROBE_DEFINITION: default-branch
+  PROBE_DEFINITION: probe-pa03-base-noguard
 
 jobs:
   guard:
@@ -98,7 +98,6 @@ jobs:
 
   environment:
     name: environment
-    needs: guard
     if: >-
       ${{ github.repository != 'jambolo/patch-steward-testbed-public' &&
       (github.event.sender.login == 'jambolo' || github.event.sender.login == 'patch-steward-testbed[bot]') && (
