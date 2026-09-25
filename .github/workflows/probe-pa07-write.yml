@@ -55,7 +55,6 @@ jobs:
           PR: ${{ inputs.pr }}
         run: |
           set -euo pipefail
-          set -x
           R="$GITHUB_REPOSITORY"
           case "$PR" in '' | *[!0-9]*) echo "PROBE-PA07 error=pr-not-a-number"; exit 1 ;; esac
           case "$NONCE" in *[!A-Za-z0-9._-]*) echo "PROBE-PA07 error=bad-nonce"; exit 1 ;; esac
@@ -90,11 +89,17 @@ jobs:
           node="$(gh api "repos/$R/pulls/$PR" --jq .node_id)"
           draft="$(gh api "repos/$R/pulls/$PR" --jq .draft)"
           if [ "$draft" != true ]; then
-            gh api graphql -f query='mutation($id: ID!) { convertPullRequestToDraft(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null
-            w pr-convert-to-draft "$PR"
+            if gh api graphql -f query='mutation($id: ID!) { convertPullRequestToDraft(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null 2>/tmp/pa07-err; then
+              w pr-convert-to-draft "$PR"
+            else
+              echo "PROBE-PA07 token=$TOKEN_KIND write-blocked=pr-convert-to-draft target=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ) reason=$(tr -d '\n' < /tmp/pa07-err)"
+            fi
           fi
-          gh api graphql -f query='mutation($id: ID!) { markPullRequestReadyForReview(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null
-          w pr-ready-for-review "$PR"
+          if gh api graphql -f query='mutation($id: ID!) { markPullRequestReadyForReview(input: {pullRequestId: $id}) { pullRequest { isDraft } } }' -f id="$node" > /dev/null 2>/tmp/pa07-err; then
+            w pr-ready-for-review "$PR"
+          else
+            echo "PROBE-PA07 token=$TOKEN_KIND write-blocked=pr-ready-for-review target=$PR utc=$(date -u +%Y-%m-%dT%H:%M:%SZ) reason=$(tr -d '\n' < /tmp/pa07-err)"
+          fi
           gh api -X PATCH "repos/$R/pulls/$PR" -f body="probe PA07 PR body edited by $TOKEN_KIND $NONCE" --jq .number > /dev/null
           w pr-body-edit "$PR"
           gh api -X POST "repos/$R/issues/$PR/labels" -f 'labels[]=probe-pa07:x' --jq length > /dev/null
