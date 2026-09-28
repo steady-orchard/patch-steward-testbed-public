@@ -1,0 +1,8 @@
+event issues opened issue 38 sender User
+policy trusted-branch revision b1916b8f26073a908208c9e5afa66fdd067f68a8
+listing none
+dedup commit no-owner
+caps daily-runs daily 28 of 1 author 1 of 20
+disposition queued
+policy revision b1916b8f26073a908208c9e5afa66fdd067f68a8
+ownership retention 90 days

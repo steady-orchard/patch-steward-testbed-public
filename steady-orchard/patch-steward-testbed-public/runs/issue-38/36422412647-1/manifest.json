@@ -1,0 +1,80 @@
+{
+  "created_at": "2026-09-28T12:32:41.636Z",
+  "files": [
+    {
+      "bytes": 297,
+      "content_hash": null,
+      "path": "logs/steward.txt",
+      "record_type": null,
+      "sha256": "sha256:333c4827bf8f92d11487b3642a497e80fb584cc3c79767391eb3e9de06713709"
+    },
+    {
+      "bytes": 9652,
+      "content_hash": "sha256:42d39f5049ebcbf8cbcf6441a57667ff27cf6b08ec2600b03c907749706dc75f",
+      "path": "policy-revision.json",
+      "record_type": "policy-revision",
+      "sha256": "sha256:b6f8efddc8e2d961b1e99cdfc4455418e3527e0bf6cb3d4781ae36e764ee5a6e"
+    },
+    {
+      "bytes": 972,
+      "content_hash": "sha256:caafb14cb3263dafdd39679d5e6c8316e7aef5c7082297d8a6517afcdc9b2ce9",
+      "path": "run.json",
+      "record_type": "run",
+      "sha256": "sha256:de81ea0e77108861f7603b03eba866ed08c1c870f27157d8dade94de2801453c"
+    },
+    {
+      "bytes": 1681,
+      "content_hash": "sha256:474cebe4fd37a81ac7133fcaf78a389dc974104b18a4cec5fc8b959e69223bfd",
+      "path": "submission.json",
+      "record_type": "submission",
+      "sha256": "sha256:fd21c27a3945a7e0e880420c364e7115a8016c08ea4703d6022ded48df3ccd26"
+    },
+    {
+      "bytes": 623,
+      "content_hash": "sha256:d5164c3f8242a0c6ac62cd950c94c650c2e0ed818150aeaffc6bd56f990979ba",
+      "path": "waiting.json",
+      "record_type": "waiting",
+      "sha256": "sha256:04eb7d3baee993c6ffdcf75cedace28dbeb063bab542c4933f17d252ca4bf4ff"
+    }
+  ],
+  "manifest_version": 1,
+  "metrics": {
+    "bytes": 1286,
+    "path": "metrics/2026-09/36422412647-1.json",
+    "sha256": "sha256:22e187a4046f824d29b7c7979456a653b0c0d054287e948677b8e29857ed0c5f"
+  },
+  "redaction": {
+    "detectors": [
+      "private-key",
+      "github-token",
+      "aws-access-key-id",
+      "provider-api-key",
+      "jwt",
+      "authorization-header",
+      "bearer-token",
+      "url-credentials",
+      "npm-token",
+      "pypi-token",
+      "gitlab-token",
+      "slack-token",
+      "slack-webhook",
+      "stripe-key",
+      "stripe-webhook-secret",
+      "google-api-key",
+      "google-oauth-client-secret",
+      "google-oauth-access-token",
+      "huggingface-token",
+      "docker-hub-token",
+      "sendgrid-key",
+      "shopify-token",
+      "digitalocean-token"
+    ],
+    "exact_values": 6,
+    "policy_patterns": [],
+    "replacements": []
+  },
+  "run_attempt": 1,
+  "run_id": 36422412647,
+  "run_kind": "waiting",
+  "store_path": "runs/issue-38/36422412647-1"
+}
