@@ -1,0 +1,16 @@
+{
+  "live_snapshot_hash": "sha256:7a447cf2faf52026ae336bdf57be1b04f586922dda42517bc50e5add8e2a3230",
+  "reason": "snapshot-changed",
+  "record_type": "supersession",
+  "recorded_at": "2026-09-28T11:32:41.172Z",
+  "recorded_snapshot_hash": "sha256:0a3b9a99277166abbe81a99b65cd46258bd94aac08258881a15435501413db01",
+  "run_attempt": 1,
+  "run_id": 36416155582,
+  "schema_version": 1,
+  "subject": {
+    "number": 34,
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "type": "pull_request"
+  },
+  "successor": null
+}
