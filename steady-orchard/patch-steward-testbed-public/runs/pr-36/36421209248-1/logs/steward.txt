@@ -1,0 +1,8 @@
+event pull_request_target opened pr 36 sender User
+policy trusted-branch revision d997b1e362c75af03942da0e7a1e8902ca5dbe51
+listing none
+dedup commit no-owner
+disposition early-exit
+policy revision d997b1e362c75af03942da0e7a1e8902ca5dbe51
+ownership retention 90 days
+decision row 3 outcome needs-changes
