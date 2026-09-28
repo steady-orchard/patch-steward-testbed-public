@@ -1,0 +1,14 @@
+{
+  "bound": {
+    "base_commit": "70b1904f1826e900ddcfcbc2088ac8e35ea0392e",
+    "head_commit": "b378f423de54946d008f2893b28e3b02ba88eab9",
+    "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+    "snapshot_hash": "sha256:cd08df691f6fdea8ff7445a5fa66678fe7366a9dc3b4575829a527fa73baca9c"
+  },
+  "check_summary": "**Outcome:** `needs-changes`\n\nCertifies `steady-orchard/patch-steward-testbed-public` pull request `42` at head commit `b378f423de54946d008f2893b28e3b02ba88eab9` (snapshot `sha256:cd08df691f6fdea8ff7445a5fa66678fe7366a9dc3b4575829a527fa73baca9c`) under policy revision `d997b1e362c75af03942da0e7a1e8902ca5dbe51`.\nBlockers: 1. Uncertainties for maintainers: 0.\n\nReport and evidence: `https://github.com/steady-orchard/patch-steward-testbed-public/tree/steward-evidence/steady-orchard/patch-steward-testbed-public/runs/pr-42/36459660778-1`\n",
+  "record_type": "report",
+  "rendered": "## Patch Steward screening report\n\n- Outcome: `needs-changes`\n- Submission: `steady-orchard/patch-steward-testbed-public` pull request `42`\n- Snapshot: `sha256:cd08df691f6fdea8ff7445a5fa66678fe7366a9dc3b4575829a527fa73baca9c`\n- Target branch: `master`\n- Head commit: `b378f423de54946d008f2893b28e3b02ba88eab9`\n- Base commit tested: `70b1904f1826e900ddcfcbc2088ac8e35ea0392e`\n- Policy revision: `d997b1e362c75af03942da0e7a1e8902ca5dbe51`\n- Run: `36459660778` attempt `1`\n\n### Classification\n\n- Category: not determined; plausible: `bugfix`, `feature`, `refactor`, `security`. Claim classification: not determined; claim validation did not run.\n\n### Blockers\n\n1. The pull request description does not match a supported template version.\n   - Location: the pull request description\n   - Evidence: `https://github.com/steady-orchard/patch-steward-testbed-public/tree/steward-evidence/steady-orchard/patch-steward-testbed-public/runs/pr-42/36459660778-1/findings/finding-0001.json`\n   - Request `R1`: Rewrite the pull request description with the pull request template: `https://github.com/steady-orchard/patch-steward-testbed-public/blob/master/.github/pull_request_template.md`\n\n### Uncertainties for maintainers\n\n- None.\n\n### Executed commands and results\n\n- None.\n\n### References\n\n- None.\n\n### Flagged automated activity\n\n- None.\n\n### What would change the outcome\n\n- Completing each numbered request changes this outcome.\n\n### Provenance\n\n- Policy revision: `d997b1e362c75af03942da0e7a1e8902ca5dbe51` (trusted branch `master` at commit `70b1904f1826e900ddcfcbc2088ac8e35ea0392e`)\n- Steward version: `0.0.2`\n- Model: no model call in this run\n- Adapter and runtime: none\n- Runner: no execution in this run\n",
+  "run_attempt": 1,
+  "run_id": 36459660778,
+  "schema_version": 1
+}
