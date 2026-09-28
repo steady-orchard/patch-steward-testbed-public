@@ -112,8 +112,8 @@ escalation:
 
 limits:
   caps:
-    daily_runs: 1
-    per_author_concurrent_runs: 20
+    daily_runs: 50
+    per_author_concurrent_runs: 2
   github:
     requests_per_run: 300
     retries_per_request: 3
