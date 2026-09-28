@@ -1,0 +1,36 @@
+{
+  "author_responses": [],
+  "category": null,
+  "contract_results": [
+    {
+      "detail": "The body does not follow a supported template version.",
+      "requirement": "submission.unstructured",
+      "satisfied": false
+    }
+  ],
+  "execution_sensitive_paths_changed": null,
+  "fields": {},
+  "head_commit": null,
+  "issue_kind": null,
+  "linked_evidence_hashes": [],
+  "number": 35,
+  "record_type": "submission",
+  "repository": "steady-orchard/patch-steward-testbed-public",
+  "schema_version": 1,
+  "shared_head_pull_requests": [],
+  "snapshot": {
+    "attachments": [],
+    "author_responses": [],
+    "content_hash": "sha256:0e08d4c9a46a943d71d4782f39abd61f26ef064d117110300cf9988686aeb2dd",
+    "number": 35,
+    "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "snapshot_version": 1,
+    "type": "issue"
+  },
+  "snapshot_hash": "sha256:2fb97073c26f5050567ed137da8ce458827634d8242852d92ab40cabf87ef411",
+  "target_branch": null,
+  "template": null,
+  "trusted_paths_changed": null,
+  "type": "issue"
+}

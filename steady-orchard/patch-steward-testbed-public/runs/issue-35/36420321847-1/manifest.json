@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-09-28T12:13:12.199Z",
+  "files": [
+    {
+      "bytes": 445,
+      "content_hash": "sha256:6e35452dd0c18aab94d68cf8f12a0d2e3da2d61b036428b1f4480d72fee4e19d",
+      "path": "decision.json",
+      "record_type": "decision",
+      "sha256": "sha256:b945644f5a5c2b412c76e1022b1bfb8621ea16084767545a1d66ef509fc6bd6c"
+    },
+    {
+      "bytes": 542,
+      "content_hash": "sha256:fa61823f2deb44366883791ddc926254b5e0cd0bab4f670b920ba8287b72b1d3",
+      "path": "findings/finding-0001.json",
+      "record_type": "finding",
+      "sha256": "sha256:2e02021c366fd8ed630ba9f3543f6a07e1e3e738b1eca9d35b2c270aaf1b8493"
+    },
+    {
+      "bytes": 317,
+      "content_hash": null,
+      "path": "logs/steward.txt",
+      "record_type": null,
+      "sha256": "sha256:0cd925b62059d6f07f6202264cb403b4ead40baf07a0da44e11fa91461576cda"
+    },
+    {
+      "bytes": 9652,
+      "content_hash": "sha256:1729eb4e453e5589aa2b7abd8965a1ea94771f52ab89221bbb886794973598c0",
+      "path": "policy-revision.json",
+      "record_type": "policy-revision",
+      "sha256": "sha256:2f86591600eb7d39f5b596d2772bcc56245ef9f9aaff1eb3277ffcfe2d8c129e"
+    },
+    {
+      "bytes": 2324,
+      "content_hash": "sha256:e8f6cbe1dcbc044ee521b12ad72a37831fef2f39d6fe825cfdf0dd94409e8799",
+      "path": "report.json",
+      "record_type": "report",
+      "sha256": "sha256:118ff73c3a9a828234a9283429ab3c2b5120c9795bfdf9024e924e58b35036fc"
+    },
+    {
+      "bytes": 1427,
+      "content_hash": null,
+      "path": "report.md",
+      "record_type": null,
+      "sha256": "sha256:3ec0e16f1aa7e3af66716c4ca78cd0fdef7e91e2cca491f44672cf13315a81a6"
+    },
+    {
+      "bytes": 972,
+      "content_hash": "sha256:771d0f73bb7a777d58419acd9c984fb489c0c2b2f4a3b96b0c0a4869d6bcf4c8",
+      "path": "run.json",
+      "record_type": "run",
+      "sha256": "sha256:4d5fbfc1f3d83a6e37f62e440c50ea4311002b7ea3ec73e5e90ea093aa8f757d"
+    },
+    {
+      "bytes": 1098,
+      "content_hash": "sha256:5c86ad448a099b0db936d0a4951d95d7e7b12daa08f2243f41fcc79af5bd38ec",
+      "path": "submission.json",
+      "record_type": "submission",
+      "sha256": "sha256:58a52ab72621de0ea1c504985926b0d826efab93145d06dbff8dc5ed6ca7f4c1"
+    }
+  ],
+  "manifest_version": 1,
+  "metrics": {
+    "bytes": 1613,
+    "path": "metrics/2026-09/36420321847-1.json",
+    "sha256": "sha256:7a6753ad7053db4572c9e44ee4de12868d2cd7562642004bde0dbab2fd9d1c29"
+  },
+  "redaction": {
+    "detectors": [
+      "private-key",
+      "github-token",
+      "aws-access-key-id",
+      "provider-api-key",
+      "jwt",
+      "authorization-header",
+      "bearer-token",
+      "url-credentials",
+      "npm-token",
+      "pypi-token",
+      "gitlab-token",
+      "slack-token",
+      "slack-webhook",
+      "stripe-key",
+      "stripe-webhook-secret",
+      "google-api-key",
+      "google-oauth-client-secret",
+      "google-oauth-access-token",
+      "huggingface-token",
+      "docker-hub-token",
+      "sendgrid-key",
+      "shopify-token",
+      "digitalocean-token"
+    ],
+    "exact_values": 6,
+    "policy_patterns": [],
+    "replacements": []
+  },
+  "run_attempt": 1,
+  "run_id": 36420321847,
+  "store_path": "runs/issue-35/36420321847-1"
+}

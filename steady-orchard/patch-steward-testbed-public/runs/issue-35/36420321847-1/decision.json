@@ -1,0 +1,18 @@
+{
+  "causes": [],
+  "contributing_findings": [
+    "finding-0001"
+  ],
+  "outcome": "needs-changes",
+  "record_type": "decision",
+  "requests": [
+    {
+      "request_id": "R1",
+      "text": "Rewrite the issue with one of the repository's issue forms: `https://github.com/steady-orchard/patch-steward-testbed-public/issues/new/choose`"
+    }
+  ],
+  "run_attempt": 1,
+  "run_id": 36420321847,
+  "schema_version": 1,
+  "unmet_requirements": []
+}
