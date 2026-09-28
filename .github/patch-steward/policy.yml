@@ -163,7 +163,8 @@ hygiene:
 
 evidence:
   store:
-    type: orphan-branch
+    type: repository
+    repository: steady-orchard/patch-steward-testbed-unwritable
     branch: steward-evidence
   retention_days: 365
   redaction_patterns: []
