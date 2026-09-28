@@ -1,0 +1,10 @@
+event issues opened issue 41 sender User
+policy trusted-branch revision 5fd52dc2a12ee40b72c01c02cf69aa990bf91fa7
+listing none
+dedup commit no-owner
+caps within daily 31 of 1000 author 1 of 1
+disposition runnable
+policy revision 5fd52dc2a12ee40b72c01c02cf69aa990bf91fa7
+ownership retention 90 days
+decision row 6 outcome inconclusive
+decision cause stage-incomplete pipeline.stage-incomplete
