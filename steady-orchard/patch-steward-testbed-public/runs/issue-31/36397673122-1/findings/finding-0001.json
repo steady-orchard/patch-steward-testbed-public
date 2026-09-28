@@ -1,0 +1,22 @@
+{
+  "basis": "The body does not follow a supported template version.",
+  "code": "submission.unstructured",
+  "detail": "issue-form",
+  "dismissal_code": null,
+  "evidence": [],
+  "finding_id": "finding-0001",
+  "location": {
+    "field": null,
+    "line": null,
+    "path": null
+  },
+  "record_type": "finding",
+  "request_id": "R1",
+  "run_attempt": 1,
+  "run_id": 36397673122,
+  "scenario": "The issue body does not match a supported issue form.",
+  "schema_version": 1,
+  "severity": "blocking",
+  "stage": "contract",
+  "subjects": []
+}
