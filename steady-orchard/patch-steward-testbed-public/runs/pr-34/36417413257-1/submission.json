@@ -1,0 +1,47 @@
+{
+  "attachments": [],
+  "author_responses": [],
+  "category": null,
+  "claim_scope_hash": null,
+  "contract_results": [
+    {
+      "detail": "The body does not follow a supported template version.",
+      "requirement": "submission.unstructured",
+      "satisfied": false
+    }
+  ],
+  "execution_sensitive_paths_changed": false,
+  "fields": {},
+  "head_commit": "1c00bc2cbcac33be01a05a5c63302e7467d600ac",
+  "issue_kind": null,
+  "linked_evidence_hashes": [],
+  "number": 34,
+  "policy_change": {
+    "changed": false,
+    "proposed": null
+  },
+  "record_type": "submission",
+  "repository": "steady-orchard/patch-steward-testbed-public",
+  "schema_version": 1,
+  "shared_head_pull_requests": [],
+  "snapshot": {
+    "attachments": [],
+    "author_responses": [],
+    "base_commit": "39d3426736d1e497675c8884cf16e1fbe3858fc5",
+    "body_hash": "sha256:967b9c8757b45cece55e11b87c658d5d3ab383de06808a70e05f7f2173952b83",
+    "head_commit": "1c00bc2cbcac33be01a05a5c63302e7467d600ac",
+    "linked_issues": [],
+    "number": 34,
+    "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "shared_head_pull_requests": [],
+    "snapshot_version": 1,
+    "target_branch": "master",
+    "type": "pull_request"
+  },
+  "snapshot_hash": "sha256:81e5909877177e7b21752c29f1e08c517f12b028c9d297ef7479eec409de9367",
+  "target_branch": "master",
+  "template": null,
+  "trusted_paths_changed": false,
+  "type": "pull_request"
+}
