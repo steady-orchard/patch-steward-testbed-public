@@ -1,0 +1,20 @@
+{
+  "live_snapshot_hash": null,
+  "reason": "newer-owner",
+  "record_type": "supersession",
+  "recorded_at": "2026-09-28T11:44:58.563Z",
+  "recorded_snapshot_hash": "sha256:81e5909877177e7b21752c29f1e08c517f12b028c9d297ef7479eec409de9367",
+  "run_attempt": 1,
+  "run_id": 36417410111,
+  "schema_version": 1,
+  "subject": {
+    "number": 34,
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "type": "pull_request"
+  },
+  "successor": {
+    "artifact_created_at": "2026-09-28T11:44:36Z",
+    "run_attempt": 1,
+    "run_id": 36417413257
+  }
+}
