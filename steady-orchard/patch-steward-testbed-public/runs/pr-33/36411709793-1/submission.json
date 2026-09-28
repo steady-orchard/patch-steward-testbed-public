@@ -1,0 +1,70 @@
+{
+  "attachments": [],
+  "author_responses": [],
+  "category": "chore",
+  "claim_scope_hash": null,
+  "contract_results": [
+    {
+      "detail": "Trusted paths changed; results from pull-request-controlled CI cannot be relied on.",
+      "requirement": "submission.trusted-path-change",
+      "satisfied": true
+    },
+    {
+      "detail": "The pull request proposes a policy change; the active policy still applies.",
+      "requirement": "submission.policy-change",
+      "satisfied": true
+    }
+  ],
+  "execution_sensitive_paths_changed": false,
+  "fields": {
+    "acceptance-criteria": "<!-- Checkable conditions that show the change works. -->",
+    "benefit": "<!-- Why the change is worth adopting and maintaining. -->",
+    "category": "chore",
+    "expected-result": "<!-- The exit status or output text. -->",
+    "intended-behavior": "<!-- The behavior after the change. -->",
+    "linked-issue": "<!-- One issue in this repository, such as #123, optionally after a closing keyword such as Fixes. -->",
+    "problem": "The lockfile is out of date after the dependency update.",
+    "references": "<!-- Documents, specifications, or decisions this change relies on. -->",
+    "regression-test": "<!-- The test file and test name that fail before the change and pass after it. -->",
+    "reproduction-command": "<!-- The exact command. Put needed files here as fenced code blocks or attach them. -->",
+    "test-scaffolding": "<!-- Non-test files the regression test needs. -->"
+  },
+  "head_commit": "ba1d0db651485288926b737ed17b9ed77de345f7",
+  "issue_kind": null,
+  "linked_evidence_hashes": [],
+  "number": 33,
+  "policy_change": {
+    "changed": true,
+    "proposed": {
+      "revision": "b1916b8f26073a908208c9e5afa66fdd067f68a8",
+      "status": "valid"
+    }
+  },
+  "record_type": "submission",
+  "repository": "steady-orchard/patch-steward-testbed-public",
+  "schema_version": 1,
+  "shared_head_pull_requests": [],
+  "snapshot": {
+    "attachments": [],
+    "author_responses": [],
+    "base_commit": "39d3426736d1e497675c8884cf16e1fbe3858fc5",
+    "body_hash": "sha256:94a6d0da0bdf54c774dd55b6901c4891436aeb3a1427a0de096fbe47eba36b17",
+    "head_commit": "ba1d0db651485288926b737ed17b9ed77de345f7",
+    "linked_issues": [],
+    "number": 33,
+    "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "shared_head_pull_requests": [],
+    "snapshot_version": 1,
+    "target_branch": "master",
+    "type": "pull_request"
+  },
+  "snapshot_hash": "sha256:a7eb7bbc45572b55267ebf6be33e079409ccc65c1f3a1992e4bc20cf18d6cad1",
+  "target_branch": "master",
+  "template": {
+    "form": "pull_request",
+    "version": 1
+  },
+  "trusted_paths_changed": true,
+  "type": "pull_request"
+}

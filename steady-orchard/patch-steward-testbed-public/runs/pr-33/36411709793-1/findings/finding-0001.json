@@ -1,0 +1,25 @@
+{
+  "basis": "Trusted paths changed; results from pull-request-controlled CI cannot be relied on.",
+  "code": "submission.trusted-path-change",
+  "detail": null,
+  "dismissal_code": null,
+  "evidence": [],
+  "finding_id": "finding-0001",
+  "location": {
+    "field": null,
+    "line": null,
+    "path": null
+  },
+  "record_type": "finding",
+  "request_id": null,
+  "run_attempt": 1,
+  "run_id": 36411709793,
+  "scenario": "Trusted paths changed (`.github/patch-steward/policy.yml`, `.github/workflows/steward-pr.yml`); results from pull-request-controlled CI cannot be relied on.",
+  "schema_version": 1,
+  "severity": "advisory",
+  "stage": "contract",
+  "subjects": [
+    ".github/patch-steward/policy.yml",
+    ".github/workflows/steward-pr.yml"
+  ]
+}

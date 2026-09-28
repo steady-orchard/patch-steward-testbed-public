@@ -1,0 +1,24 @@
+{
+  "basis": "The pull request proposes a policy change; the active policy still applies.",
+  "code": "submission.policy-change",
+  "detail": "valid",
+  "dismissal_code": null,
+  "evidence": [],
+  "finding_id": "finding-0002",
+  "location": {
+    "field": null,
+    "line": null,
+    "path": null
+  },
+  "record_type": "finding",
+  "request_id": null,
+  "run_attempt": 1,
+  "run_id": 36411709793,
+  "scenario": "The pull request proposes a policy change (proposed revision `b1916b8f26073a908208c9e5afa66fdd067f68a8`: `valid`); the active policy still applies.",
+  "schema_version": 1,
+  "severity": "advisory",
+  "stage": "contract",
+  "subjects": [
+    ".github/patch-steward/policy.yml"
+  ]
+}
