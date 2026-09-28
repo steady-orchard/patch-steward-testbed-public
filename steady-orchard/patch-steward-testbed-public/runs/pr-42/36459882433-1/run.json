@@ -1,0 +1,39 @@
+{
+  "adapter_version": null,
+  "budget": {
+    "ai_credits": null,
+    "container_seconds": 0,
+    "executions": 0,
+    "github_requests": 20,
+    "model_calls": 0,
+    "retries": 0,
+    "tokens": null
+  },
+  "commits": {
+    "base": "70b1904f1826e900ddcfcbc2088ac8e35ea0392e",
+    "group": null,
+    "head": "b378f423de54946d008f2893b28e3b02ba88eab9"
+  },
+  "finished_at": "2026-09-28T17:42:00.225Z",
+  "generation": null,
+  "mode": "observe",
+  "owned_check_id": null,
+  "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+  "provider": null,
+  "record_type": "run",
+  "reported_model": null,
+  "requested_model": null,
+  "run_attempt": 1,
+  "run_id": 36459882433,
+  "runner_identity": null,
+  "schema_version": 1,
+  "started_at": "2026-09-28T17:41:45.565Z",
+  "steward_version": "0.0.2",
+  "subject": {
+    "kind": "submission",
+    "number": 42,
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "snapshot_hash": "sha256:092d9ff9e6224f38129e0bd7621784ff7aa87a7104ab08a591a13a35a7fea039",
+    "type": "pull_request"
+  }
+}
