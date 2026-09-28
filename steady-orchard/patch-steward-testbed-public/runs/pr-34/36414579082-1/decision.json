@@ -1,0 +1,18 @@
+{
+  "causes": [],
+  "contributing_findings": [
+    "finding-0001"
+  ],
+  "outcome": "needs-changes",
+  "record_type": "decision",
+  "requests": [
+    {
+      "request_id": "R1",
+      "text": "Rewrite the pull request description with the pull request template: `https://github.com/steady-orchard/patch-steward-testbed-public/blob/master/.github/pull_request_template.md`"
+    }
+  ],
+  "run_attempt": 1,
+  "run_id": 36414579082,
+  "schema_version": 1,
+  "unmet_requirements": []
+}
