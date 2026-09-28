@@ -1,0 +1,23 @@
+{
+  "arrival_at": "2026-09-28T12:40:29Z",
+  "counts": {
+    "author_count": 2,
+    "author_limit": 1,
+    "daily_count": 31,
+    "daily_limit": 1000
+  },
+  "policy_revision": "5fd52dc2a12ee40b72c01c02cf69aa990bf91fa7",
+  "reason": "per-author-concurrent-runs",
+  "record_type": "waiting",
+  "recorded_at": "2026-09-28T12:40:42.531Z",
+  "run_attempt": 1,
+  "run_id": 36423270119,
+  "schema_version": 1,
+  "snapshot_hash": "sha256:b46f0e9548370e070b5113bf7ee6c457457676cfa594fd2cdaa0f3fc5538be86",
+  "state": "queued",
+  "subject": {
+    "number": 40,
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "type": "issue"
+  }
+}

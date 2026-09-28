@@ -1,0 +1,43 @@
+{
+  "author_responses": [],
+  "category": null,
+  "contract_results": [],
+  "execution_sensitive_paths_changed": null,
+  "fields": {
+    "actual-behavior": "`widget parse empty.txt` exits with status 1 and prints `TypeError: cannot read properties of undefined`.",
+    "affected-version": "1.4.2",
+    "authoritative-basis": "docs/format.md, section \"Empty input\": an empty file is a valid document.",
+    "expected-behavior": "`widget parse` accepts an empty file and prints an empty document.",
+    "expected-result": "Exit status 0 and the output `[]`.",
+    "proposed-scope": "Handle empty input in the parser entry point only.",
+    "references": "_No response_",
+    "reproduction-command": "```shell\r\ntouch empty.txt\r\nwidget parse empty.txt\r\n```",
+    "security-claim": "- [ ] This report claims a security problem"
+  },
+  "head_commit": null,
+  "issue_kind": "defect",
+  "linked_evidence_hashes": [],
+  "number": 40,
+  "record_type": "submission",
+  "repository": "steady-orchard/patch-steward-testbed-public",
+  "schema_version": 1,
+  "shared_head_pull_requests": [],
+  "snapshot": {
+    "attachments": [],
+    "author_responses": [],
+    "content_hash": "sha256:3050dc4f6b9411ea88af8a8796c31b16f25b674ee112652f7a3d6d21de607a3c",
+    "number": 40,
+    "policy_revision": "5fd52dc2a12ee40b72c01c02cf69aa990bf91fa7",
+    "repository": "steady-orchard/patch-steward-testbed-public",
+    "snapshot_version": 1,
+    "type": "issue"
+  },
+  "snapshot_hash": "sha256:b46f0e9548370e070b5113bf7ee6c457457676cfa594fd2cdaa0f3fc5538be86",
+  "target_branch": null,
+  "template": {
+    "form": "defect",
+    "version": 1
+  },
+  "trusted_paths_changed": null,
+  "type": "issue"
+}
