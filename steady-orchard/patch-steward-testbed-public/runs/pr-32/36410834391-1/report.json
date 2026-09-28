@@ -1,0 +1,14 @@
+{
+  "bound": {
+    "base_commit": "39d3426736d1e497675c8884cf16e1fbe3858fc5",
+    "head_commit": "706c6e01840ce494de79f068337bcc107104e196",
+    "policy_revision": "d997b1e362c75af03942da0e7a1e8902ca5dbe51",
+    "snapshot_hash": "sha256:0e51951fbff418a8e2ed1bdf6e44649166b942ac7c625dbb210ce8b353044d2c"
+  },
+  "check_summary": "**Outcome:** `inconclusive`\n\nCertifies `steady-orchard/patch-steward-testbed-public` pull request `32` at head commit `706c6e01840ce494de79f068337bcc107104e196` (snapshot `sha256:0e51951fbff418a8e2ed1bdf6e44649166b942ac7c625dbb210ce8b353044d2c`) under policy revision `d997b1e362c75af03942da0e7a1e8902ca5dbe51`.\nBlockers: 0. Uncertainties for maintainers: 0.\n\nReport and evidence: `https://github.com/steady-orchard/patch-steward-testbed-public/tree/steward-evidence/steady-orchard/patch-steward-testbed-public/runs/pr-32/36410834391-1`\n",
+  "record_type": "report",
+  "rendered": "## Patch Steward screening report\n\n- Outcome: `inconclusive`\n- Inconclusive causes: `stage-incomplete`\n- Submission: `steady-orchard/patch-steward-testbed-public` pull request `32`\n- Snapshot: `sha256:0e51951fbff418a8e2ed1bdf6e44649166b942ac7c625dbb210ce8b353044d2c`\n- Target branch: `master`\n- Head commit: `706c6e01840ce494de79f068337bcc107104e196`\n- Base commit tested: `39d3426736d1e497675c8884cf16e1fbe3858fc5`\n- Policy revision: `d997b1e362c75af03942da0e7a1e8902ca5dbe51`\n- Run: `36410834391` attempt `1`\n\n### Classification\n\n- Category: `chore`. Claim classification: not determined; claim validation did not run.\n- Note: Trusted paths changed (`.github/patch-steward/policy.yml`, `.github/workflows/steward-pr.yml`); results from pull-request-controlled CI cannot be relied on.\n- Note: The pull request proposes a policy change (proposed revision `b1916b8f26073a908208c9e5afa66fdd067f68a8`: `valid`); the active policy still applies.\n\n### Blockers\n\n- None.\n\n### Uncertainties for maintainers\n\n- None.\n\n### Executed commands and results\n\n- None.\n\n### References\n\n- None.\n\n### Flagged automated activity\n\n- None.\n\n### What would change the outcome\n\n- Required work did not complete; the causes below explain what changes this outcome.\n- Required stages produced no result: `references`, `claim`, `regression`. A steward version that runs these stages is required; this version checks the submission contract only.\n\n### Provenance\n\n- Policy revision: `d997b1e362c75af03942da0e7a1e8902ca5dbe51` (trusted branch `master` at commit `39d3426736d1e497675c8884cf16e1fbe3858fc5`)\n- Steward version: `0.0.2`\n- Model: no model call in this run\n- Adapter and runtime: none\n- Runner: no execution in this run\n",
+  "run_attempt": 1,
+  "run_id": 36410834391,
+  "schema_version": 1
+}

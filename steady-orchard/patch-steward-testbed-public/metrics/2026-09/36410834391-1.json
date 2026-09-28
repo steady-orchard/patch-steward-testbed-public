@@ -1,0 +1,79 @@
+[
+  {
+    "kind": "state-transition",
+    "payload": {
+      "from": null,
+      "to": "screening"
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T10:39:03.504Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "run",
+      "run_attempt": 1,
+      "run_id": 36410834391
+    }
+  },
+  {
+    "kind": "latency",
+    "payload": {
+      "seconds": 5.19,
+      "stage": "gate"
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T10:39:03.504Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "run",
+      "run_attempt": 1,
+      "run_id": 36410834391
+    }
+  },
+  {
+    "kind": "latency",
+    "payload": {
+      "seconds": 1.444,
+      "stage": "publish"
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T10:39:18.985Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "run",
+      "run_attempt": 1,
+      "run_id": 36410834391
+    }
+  },
+  {
+    "kind": "cost",
+    "payload": {
+      "ai_credits": null,
+      "container_seconds": 0,
+      "model_calls": 0,
+      "tokens": null
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T10:39:18.985Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "run",
+      "run_attempt": 1,
+      "run_id": 36410834391
+    }
+  },
+  {
+    "kind": "state-transition",
+    "payload": {
+      "from": "screening",
+      "to": "inconclusive"
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T10:39:18.985Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "run",
+      "run_attempt": 1,
+      "run_id": 36410834391
+    }
+  }
+]

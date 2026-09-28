@@ -1,0 +1,22 @@
+{
+  "causes": [
+    {
+      "cause": "stage-incomplete",
+      "code": "pipeline.stage-incomplete",
+      "message": "Required stages produced no result.",
+      "subjects": [
+        "references",
+        "claim",
+        "regression"
+      ]
+    }
+  ],
+  "contributing_findings": [],
+  "outcome": "inconclusive",
+  "record_type": "decision",
+  "requests": [],
+  "run_attempt": 1,
+  "run_id": 36410834391,
+  "schema_version": 1,
+  "unmet_requirements": []
+}
