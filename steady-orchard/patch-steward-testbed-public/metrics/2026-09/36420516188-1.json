@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "maintainer-resolution",
+    "payload": {
+      "action_kind": "resolution",
+      "dismissal_code": null,
+      "paired_run": {
+        "run_attempt": 1,
+        "run_id": 36420321847
+      },
+      "paired_snapshot_hash": "sha256:2fb97073c26f5050567ed137da8ce458827634d8242852d92ab40cabf87ef411",
+      "resolution": "closed-by-maintainer"
+    },
+    "record_type": "metrics-event",
+    "recorded_at": "2026-09-28T12:14:42.815Z",
+    "schema_version": 1,
+    "subject": {
+      "kind": "submission",
+      "number": 35,
+      "repository": "steady-orchard/patch-steward-testbed-public",
+      "type": "issue"
+    }
+  }
+]
