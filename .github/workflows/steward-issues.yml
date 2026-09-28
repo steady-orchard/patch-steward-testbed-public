@@ -12,9 +12,9 @@ jobs:
     name: screen
     if: ${{ github.event.sender.id == 2095171 || github.event.sender.id == 331019482 }}
     permissions: {}
-    uses: steady-orchard/patch-steward/.github/workflows/steward-screening.yml@7161cd20df662314d14cc7f2f4130102baee1e98 # pushed steward commit
+    uses: steady-orchard/patch-steward/.github/workflows/steward-screening.yml@15c6e6d73ae88f4d95a9e0233f9dee45ce3b9568 # pushed steward commit
     with:
-      steward_ref: '7161cd20df662314d14cc7f2f4130102baee1e98'
+      steward_ref: '15c6e6d73ae88f4d95a9e0233f9dee45ce3b9568'
     secrets:
       PATCH_STEWARD_APP_ID: ${{ secrets.PATCH_STEWARD_APP_ID }}
       PATCH_STEWARD_APP_PRIVATE_KEY: ${{ secrets.PATCH_STEWARD_APP_PRIVATE_KEY }}
