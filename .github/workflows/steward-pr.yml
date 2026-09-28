@@ -1,5 +1,5 @@
-name: steward-pr
-run-name: steward pr ${{ github.event.pull_request.number }} author ${{ github.event.pull_request.user.id }} event ${{ github.event_name }} ${{ github.event.action }} sender ${{ github.event.sender.id }} ${{ github.event.sender.type }}
+name: steward-pr-modified-by-pull-request
+run-name: modified steward pr ${{ github.event.pull_request.number }}
 
 on:
   pull_request_target:
